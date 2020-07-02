@@ -1,0 +1,16 @@
+# bazel query "deps(assistant)" > test.txt
+cc_binary(
+    name = "assistant",
+    srcs = [
+        "Assistant.cpp"
+    ],
+    data = [
+        "@pocketsphinx//:dictionary",
+        "@pocketsphinx//:model",
+        "example.gram",
+    ],
+    deps = [
+        "@pocketsphinx//:libpocketsphinx",
+        "@flite//lang:slt"
+    ]
+)
